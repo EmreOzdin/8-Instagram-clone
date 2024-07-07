@@ -1,4 +1,4 @@
 import { Text } from "react-native";
-export default function index() {
+export default function FeedScreen() {
   return <Text>Feed</Text>;
 }
