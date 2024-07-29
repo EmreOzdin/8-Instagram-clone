@@ -14,4 +14,3 @@ export default function Home() {
 
 
 
-//video https://www.youtube.com/watch?v=CRIMOPhiWG8 37:51
