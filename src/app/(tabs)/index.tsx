@@ -20,4 +20,4 @@ export default function FeedScreen() {
   );
 }
 
-//youtube: notjustdev 1:40:00
+//youtube: notjustdev 2:15:27
