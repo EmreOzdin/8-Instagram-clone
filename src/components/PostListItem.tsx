@@ -2,7 +2,7 @@ import { View, Text, Image } from "react-native";
 import posts from "~/assets/data/posts.json";
 import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
 
-const post1 = posts[0];
+
 
 export default function PostListItem({ post }) {
   return (
@@ -15,7 +15,10 @@ export default function PostListItem({ post }) {
         />
         <Text className="font-semibold">{post.user.username}</Text>
       </View>
-      <Image source={{ uri: post.image_url }} className="w-full aspect-[4/3]" />
+      <Image
+        source={{ uri: post.user.image_url }}
+        className="w-full aspect-[4/3]"
+      />
 
       {/* Icons */}
       <View className="flex-row gap-3 p-3">
