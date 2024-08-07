@@ -37,6 +37,7 @@ export default function ProfileScreen() {
       </Text>
 
       {/* Form */}
+      <Text>Username</Text>
       <TextInput
         placeholder="Username"
         value={username}
