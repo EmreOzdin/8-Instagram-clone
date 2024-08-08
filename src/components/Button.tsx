@@ -1,4 +1,4 @@
-import { Text, Pressable, Button } from "react-native";
+import { Text, Pressable } from "react-native";
 
 type ButtonProps = {
   title: string;
@@ -11,8 +11,7 @@ export default function Button({ title, onPress }: ButtonProps) {
       onPress={onPress}
       className="bg-blue-500 w-full p-3 items-center rounded-md"
     >
-      <Text className="text-white font-semibold">{title}</Text>
-      <Button title="Share" />
+      <Text className="text-white font-semibold">{title}</Text>a{" "}
     </Pressable>
   );
 }

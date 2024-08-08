@@ -1,6 +1,7 @@
-import { Text, View, Image, TextInput, Button } from "react-native";
+import { Text, View, Image, TextInput } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
+import Button from "~/src/components/Button";
 export default function ProfileScreen() {
   const [image, setImage] = useState<string | null>(null);
   const [username, setUsername] = useState("");
@@ -19,7 +20,7 @@ export default function ProfileScreen() {
     }
   };
   return (
-    <View className="p-3">
+    <View className="p-3 flex:1">
       {/* Avatar Image Picker*/}
       {image ? (
         <Image
