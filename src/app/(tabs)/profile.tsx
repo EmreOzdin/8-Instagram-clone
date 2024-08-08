@@ -1,4 +1,4 @@
-import { Text, View, Image, TextInput } from "react-native";
+import { Text, View, Image, TextInput, Button } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
 export default function ProfileScreen() {
@@ -37,7 +37,7 @@ export default function ProfileScreen() {
       </Text>
 
       {/* Form */}
-      <Text>Username</Text>
+      <Text className="mb-2 text-gray-500 font-semibold">Username</Text>
       <TextInput
         placeholder="Username"
         value={username}
@@ -45,6 +45,10 @@ export default function ProfileScreen() {
         className="border border-gray-300 p-3 rounded-md"
       />
       {/* Button */}
+      <View className="gap-2 mt-8">
+        <Button title="Update Profile" />
+        <Button title="Sign Out" />
+      </View>
     </View>
   );
 }

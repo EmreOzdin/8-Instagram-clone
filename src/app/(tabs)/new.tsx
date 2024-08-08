@@ -1,4 +1,4 @@
-import { Image, Text, View, TextInput, Pressable } from "react-native";
+import { Image, Text, View, TextInput, Pressable, Button } from "react-native";
 import { useEffect, useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 
@@ -6,11 +6,11 @@ export default function CreatePost() {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState<string | null>(null);
 
-  useEffect(()=>{
-    if(!image) {
-      pickImage()
+  useEffect(() => {
+    if (!image) {
+      pickImage();
     }
-  }, [image])
+  }, [image]);
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -26,35 +26,35 @@ export default function CreatePost() {
     }
   };
 
-    return (
-      <View className="p-3 items-center flex-1">
-        {/*Image Picker*/}
-        {image ? (
-          <Image
-            source={{ uri: image }}
-            className="w-52 aspect-[3/4] rounded-lg shadow-lg"
-          />
-        ) : (
-          <View className="w-52 aspect-[3/4] rounded-lg shadow-lg" />
-        )}
-        <Text onPress={pickImage} className="text-blue-500 font-semibold m-5">
-          Change
-        </Text>
-
-        {/*Text Input forCaption*/}
-        <TextInput
-          value={caption}
-          onChangeText={(newValue) => setCaption(newValue)}
-          placeholder="What is on your mind"
-          className="w-full p-3"
+  return (
+    <View className="p-3 items-center flex-1">
+      {/*Image Picker*/}
+      {image ? (
+        <Image
+          source={{ uri: image }}
+          className="w-52 aspect-[3/4] rounded-lg shadow-lg"
         />
+      ) : (
+        <View className="w-52 aspect-[3/4] rounded-lg shadow-lg" />
+      )}
+      <Text onPress={pickImage} className="text-blue-500 font-semibold m-5">
+        Change
+      </Text>
 
-        {/*Button*/}
-        <View className="mt-24 w-full">
-          <Pressable className="bg-blue-500 w-full p-3 items-center rounded-md">
-            <Text className="text-white font-semibold">Share</Text>
-          </Pressable>
-        </View>
+      {/*Text Input forCaption*/}
+      <TextInput
+        value={caption}
+        onChangeText={(newValue) => setCaption(newValue)}
+        placeholder="What is on your mind"
+        className="w-full p-3"
+      />
+
+      {/*Button*/}
+      <View className="mt-24 w-full">
+        <Pressable className="bg-blue-500 w-full p-3 items-center rounded-md">
+          <Text className="text-white font-semibold">Share</Text>
+        </Pressable>
       </View>
-    );
-  };
+    </View>
+  );
+}
