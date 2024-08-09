@@ -40,7 +40,6 @@ export default function PostListItem({ post }) {
         <AntDesign name="hearto" size={20} />
         <Ionicons name="chatbubble-outline" size={20} />
         <Feather name="send" size={20} />
-
         <Feather name="bookmark" size={20} className="ml-64" />
       </View>
     </View>
