@@ -27,6 +27,16 @@ export default function CreatePost() {
     }
   };
 
+  const uploadImage = async () => {
+    //upload the image to cloudinary
+    //return the cloudinary image url
+  };
+
+  const createPost = async () => {
+    await uploadImage();
+    //Save the post in database
+  };
+
   return (
     <View className="p-3 items-center flex-1">
       {/*Image Picker*/}
@@ -52,7 +62,7 @@ export default function CreatePost() {
 
       {/*Button*/}
       <View className="mt-24 w-full">
-        <Button title="Share Post" />
+        <Button title="Share" onPress={createPost} />
       </View>
     </View>
   );

@@ -1,16 +1,14 @@
 import { View, Text, Image, useWindowDimensions } from "react-native";
-import posts from "~/assets/data/posts.json";
 import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
 
 import { AdvancedImage } from "cloudinary-react-native";
 // Import required actions and qualifiers.
 import { thumbnail } from "@cloudinary/url-gen/actions/resize";
-import { byRadius } from "@cloudinary/url-gen/actions/roundCorners";
 import { focusOn } from "@cloudinary/url-gen/qualifiers/gravity";
 import { FocusOn } from "@cloudinary/url-gen/qualifiers/focusOn";
 import { cld } from "../lib/cloudinary";
 
-export default function PostListItem({ post }) {
+export default function PostListItem({ post }: any) {
   const { width } = useWindowDimensions();
 
   const image = cld.image(post.image);
@@ -27,13 +25,16 @@ export default function PostListItem({ post }) {
       <View className="p-3 flex-row items-center gap-2">
         <AdvancedImage
           cldImg={avatar}
-          className="w-12 aspect-square rounded-full"
+          style={{ width: 48, aspectRatio: 1, borderRadius: 24 }}
         />
         <Text className="font-semibold">{post.user.username}</Text>
       </View>
 
       {/* Content */}
-      <AdvancedImage cldImg={image} className="w-full aspect-[4/3]" />
+      <AdvancedImage
+        cldImg={image}
+        style={{ width: "100%", aspectRatio: 4 / 3 }}
+      />
 
       {/* Icons */}
       <View className="flex-row gap-3 p-3">
