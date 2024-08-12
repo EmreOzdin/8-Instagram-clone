@@ -48,7 +48,12 @@ export default function ProfileScreen() {
       {/* Button */}
       <View className="gap-2 mt-8">
         <Button title="Update Profile" />
-        <Button title="Sign Out" />
+        <Button
+          title="Sign Out"
+          onPress={() => {
+            supabase.auth.signOut();
+          }}
+        />
       </View>
     </View>
   );
