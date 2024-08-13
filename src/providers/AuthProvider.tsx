@@ -1,14 +1,14 @@
-import { Session, User } from "@supabase/supabase-js";
+import { Session, User } from '@supabase/supabase-js';
 import {
   PropsWithChildren,
   createContext,
   useContext,
   useEffect,
   useState,
-} from "react";
-import { ActivityIndicator } from "react-native";
+} from 'react';
+import { ActivityIndicator } from 'react-native';
 
-import { supabase } from "~/src/lib/supabase";
+import { supabase } from '~/src/lib/supabase';
 
 type Auth = {
   isAuthenticated: boolean;

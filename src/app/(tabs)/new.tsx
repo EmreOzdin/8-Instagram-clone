@@ -1,17 +1,17 @@
-import { Text, View, Image, TextInput, Pressable } from "react-native";
-import { useEffect, useState } from "react";
-import * as ImagePicker from "expo-image-picker";
-import Button from "~/src/components/Button";
-import { uploadImage } from "~/src/lib/cloudinary";
-import { supabase } from "~/src/lib/supabase";
-import { useAuth } from "~/src/providers/AuthProvider";
-import { router } from "expo-router";
-import { ResizeMode, Video } from "expo-av";
+import { Text, View, Image, TextInput, Pressable } from 'react-native';
+import { useEffect, useState } from 'react';
+import * as ImagePicker from 'expo-image-picker';
+import Button from '~/src/components/Button';
+import { uploadImage } from '~/src/lib/cloudinary';
+import { supabase } from '~/src/lib/supabase';
+import { useAuth } from '~/src/providers/AuthProvider';
+import { router } from 'expo-router';
+import { ResizeMode, Video } from 'expo-av';
 
 export default function CreatePost() {
-  const [caption, setCaption] = useState("");
+  const [caption, setCaption] = useState('');
   const [media, setMedia] = useState<string | null>(null);
-  const [mediaType, setMediaType] = useState<"video" | "image" | undefined>();
+  const [mediaType, setMediaType] = useState<'video' | 'image' | undefined>();
 
   const { session } = useAuth();
 
@@ -42,10 +42,10 @@ export default function CreatePost() {
     }
     const response = await uploadImage(media);
     // Save the post in database
-    console.log("image id: ", response?.public_id);
+    console.log('image id: ', response?.public_id);
 
     const { data, error } = await supabase
-      .from("posts")
+      .from('posts')
       .insert([
         {
           caption,
@@ -56,7 +56,7 @@ export default function CreatePost() {
       ])
       .select();
 
-    router.push("/(tabs)");
+    router.push('/(tabs)');
   };
 
   return (
@@ -64,7 +64,7 @@ export default function CreatePost() {
       {/* Image picker */}
       {!media ? (
         <View className="w-52 aspect-[3/4] rounded-lg bg-slate-300" />
-      ) : mediaType === "image" ? (
+      ) : mediaType === 'image' ? (
         <Image
           source={{ uri: media }}
           className="w-52 aspect-[3/4] rounded-lg bg-slate-300"
@@ -72,7 +72,7 @@ export default function CreatePost() {
       ) : (
         <Video
           className="w-52 aspect-[3/4] rounded-lg bg-slate-300"
-          style={{ width: "100%", aspectRatio: 16 / 9 }}
+          style={{ width: '100%', aspectRatio: 16 / 9 }}
           source={{
             uri: media,
           }}

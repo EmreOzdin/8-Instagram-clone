@@ -1,8 +1,8 @@
-import { Text, Pressable } from "react-native";
+import { Pressable, Text } from 'react-native';
 
 type ButtonProps = {
   title: string;
-  onPress?: () => void; // Function to be called when the button is pressed.
+  onPress?: () => void;
 };
 
 export default function Button({ title, onPress }: ButtonProps) {
